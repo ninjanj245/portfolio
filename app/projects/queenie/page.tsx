@@ -141,8 +141,8 @@ export default function QueenieProjectPage() {
               </div>
             </div>
 
-              <div className="lg:col-span-5 lg:col-start-8 xl:col-span-10 xl:col-start-15">
-                <div className="mx-auto w-full max-w-[465px] lg:mr-0">
+              <div className="lg:col-span-5 lg:col-start-8 lg:pt-[48px] xl:col-span-10 xl:col-start-15">
+                <div className="mx-auto w-full max-w-[465px]">
                 <ProjectImage
                   src={queenieAssets.hero}
                   alt="Queenie poster artwork"
