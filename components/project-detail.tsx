@@ -1,148 +1,251 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DM_Sans } from "next/font/google";
 
 import type { ProjectRecord } from "@/data/projects";
 
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-dm-sans",
+});
+
+const backIcon = "/Arrow left-circle.png";
+
+function BackLink() {
+  return (
+    <Link
+      href="/hiya#work"
+      className="inline-flex h-[28px] w-[28px] items-center justify-center"
+      aria-label="Back to work"
+    >
+      <Image
+        src={backIcon}
+        alt=""
+        width={28}
+        height={28}
+        className="h-[28px] w-[28px] object-contain"
+      />
+    </Link>
+  );
+}
+
+function RawImage({
+  src,
+  alt,
+  sizes,
+}: {
+  src: string;
+  alt: string;
+  sizes: string;
+}) {
+  return (
+    <div className="overflow-hidden rounded-[10px] bg-[#f3f3f3]">
+      <Image
+        src={src}
+        alt={alt}
+        width={1600}
+        height={1000}
+        sizes={sizes}
+        className="block h-auto w-full"
+      />
+    </div>
+  );
+}
+
 export default function ProjectDetail({ project }: { project: ProjectRecord }) {
   return (
-    <main className="min-h-screen bg-[#f3efe6] text-black">
-      <header className="sticky top-0 z-50 bg-[#f3efe6]">
-        <div className="mx-auto flex max-w-[1512px] items-center justify-between px-5 py-4 md:px-8 lg:px-10 xl:px-[64px]">
-          <Link href="/" className="text-[12px] tracking-[0.18em]">
-            NASTJA JURICEV
+    <main
+      className={`${dmSans.variable} min-h-screen bg-[#fafafa] text-[#1B45C8] [font-family:var(--font-dm-sans)]`}
+    >
+      <header className="px-6 pt-5 md:px-10 lg:px-14 xl:px-[64px]">
+        <div className="mx-auto flex max-w-[1512px] items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em]">
+          <Link href="/hiya" className="text-[#1B45C8]">
+            Nastja Juricev
           </Link>
-          <nav className="flex items-center gap-5 text-[12px] tracking-[0.18em] md:gap-7">
-            <Link href="/hiya#work">WORK</Link>
-            <Link href="/hiya#about">ABOUT</Link>
-            <a href="mailto:juricevnastja@gmail.com">CONTACT</a>
+
+          <nav className="hidden items-center gap-6 md:flex md:gap-8">
+            <Link href="/hiya#work" className="text-[#1B45C8]">
+              Work
+            </Link>
+            <Link href="/hiya#about" className="text-[#1B45C8]">
+              About
+            </Link>
+            <a href="mailto:juricevnastja@gmail.com" className="text-[#FF4D00]">
+              Get In Touch
+            </a>
           </nav>
         </div>
       </header>
 
-      <section className="border-t border-black/10">
-        <div className="mx-auto max-w-[1512px] px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20 xl:px-[64px]">
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)] md:items-start">
-            <div>
-              <p className="text-[12px] tracking-[0.18em] text-black/45">
-                {project.category}
-              </p>
-              <h1 className="mt-4 max-w-[10ch] text-[clamp(2.8rem,7vw,6.8rem)] leading-[0.92] tracking-[-0.06em]">
-                {project.title}
-              </h1>
+      <div className="mx-auto mt-4 w-full max-w-[1512px] overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]">
+        <section className="px-6 pb-14 pt-5 md:px-10 md:pb-16 lg:px-14 xl:px-[64px]">
+          <div className="grid gap-y-5 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
+            <div className="lg:col-span-6 xl:col-span-9">
+              <div className="mb-5">
+                <BackLink />
+              </div>
+
+              <div className="max-w-[38ch] space-y-3 text-[18px] leading-[1.3]">
+                <div className="space-y-1">
+                  <h1 className="text-[48px] font-medium leading-[0.94] tracking-[-0.04em] md:text-[56px]">
+                    {project.title}
+                  </h1>
+                  <p className="text-[12px] font-bold uppercase tracking-[0.03em]">
+                    {project.category}
+                  </p>
+                </div>
+
+                <p className="text-[14px] font-bold leading-[1.35]">
+                  {project.deliverables.join(" · ")}
+                </p>
+              </div>
             </div>
 
-            <div className="md:pt-3">
-              <p className="max-w-[34rem] text-base leading-relaxed text-black/72 md:text-lg">
+            <div className="lg:col-span-5 lg:col-start-8 xl:col-span-10 xl:col-start-15">
+              <p className="text-[18px] font-bold leading-[1.3]">
                 {project.summary}
               </p>
-              <p className="mt-6 max-w-[34rem] text-sm leading-relaxed text-black/58 md:text-base">
-                {project.intro}
-              </p>
-              <p className="mt-8 text-[12px] tracking-[0.18em] text-black/45">
-                {project.deliverables.join(" / ")}
-              </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section>
-        <div className="mx-auto max-w-[1512px] px-5 md:px-8 lg:px-10 xl:px-[64px]">
-          {project.hero ? (
-            <Image
-              src={project.hero.src}
-              alt={project.hero.alt}
-              width={1600}
-              height={1200}
-              sizes="(max-width: 768px) 100vw, 1512px"
-              className="block h-auto w-full object-cover"
-            />
-          ) : (
-            <div className="aspect-[1.5/1] w-full rounded-[10px] border border-black/10 bg-[linear-gradient(135deg,rgba(0,0,0,0.06),rgba(0,0,0,0.015))]" />
-          )}
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-[1512px] px-5 md:px-8 lg:px-10 xl:px-[64px]">
-          <div className="mb-10 flex items-end justify-between gap-6">
-            <div>
-              <p className="text-[12px] tracking-[0.18em] text-black/45">PROJECT</p>
-              <h2 className="mt-3 text-[clamp(2rem,5vw,4.8rem)] leading-[0.94] tracking-[-0.06em]">
-                Final visuals
-              </h2>
-            </div>
-            <p className="max-w-[24rem] text-sm leading-relaxed text-black/58 md:text-base">
-              Drop your final images into the project folder and they will sit raw on the page in this sequence.
-            </p>
-          </div>
-
-          {project.detailImages.length ? (
-            <div className="space-y-8 md:space-y-12">
-              {project.detailImages.map((image) => (
-                <figure key={image.src} className="space-y-2">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={1600}
-                    height={1200}
-                    sizes="(max-width: 768px) 100vw, 1512px"
-                    className="block h-auto w-full object-cover"
-                  />
-                  {image.caption ? (
-                    <figcaption className="text-[12px] tracking-[0.08em] text-black/45">
-                      {image.caption}
-                    </figcaption>
-                  ) : null}
-                </figure>
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-[10px] border border-black/10 px-6 py-10 text-sm leading-relaxed text-black/58 md:px-8 md:py-12 md:text-base">
-              Final imagery has not been added to this project yet. Drop assets into{" "}
-              <code>public/{project.slug}/</code> and add them to this project entry when you are ready.
-            </div>
-          )}
-        </div>
-      </section>
-
-      {project.wireframes?.length ? (
-        <section className="border-t border-black/10 py-16 md:py-24">
-          <div className="mx-auto max-w-[1512px] px-5 md:px-8 lg:px-10 xl:px-[64px]">
-            <div className="mb-10 flex items-end justify-between gap-6">
-              <div>
-                <p className="text-[12px] tracking-[0.18em] text-black/45">PROCESS</p>
-                <h2 className="mt-3 text-[clamp(2rem,5vw,4.8rem)] leading-[0.94] tracking-[-0.06em]">
-                  Wireframes
-                </h2>
+            <div className="lg:col-span-7 lg:row-start-2 lg:-mt-5 xl:col-span-11">
+              <div className="max-w-[42ch] space-y-5 text-[18px] font-bold leading-[1.3]">
+                <p>{project.intro}</p>
               </div>
-              <p className="max-w-[24rem] text-sm leading-relaxed text-black/58 md:text-base">
-                Wireframes follow the same numbered order as the project folder.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              {project.wireframes.map((image) => (
-                <figure key={image.src} className="space-y-2">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={1200}
-                    height={900}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="block h-auto w-full object-cover"
-                  />
-                  {image.caption ? (
-                    <figcaption className="text-[12px] tracking-[0.08em] text-black/45">
-                      {image.caption}
-                    </figcaption>
-                  ) : null}
-                </figure>
-              ))}
             </div>
           </div>
         </section>
-      ) : null}
+
+        {project.hero ? (
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+            <div className="grid lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
+              <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
+                <RawImage
+                  src={project.hero.src}
+                  alt={project.hero.alt}
+                  sizes="(max-width: 1024px) 100vw, 75vw"
+                />
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {project.detailImages.length ? (
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+            <div className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
+              {project.detailImages.map((image) => (
+                <figure
+                  key={image.src}
+                  className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4"
+                >
+                  <RawImage
+                    src={image.src}
+                    alt={image.alt}
+                    sizes="(max-width: 1024px) 100vw, 75vw"
+                  />
+                  {image.caption ? (
+                    <figcaption className="mt-2 text-[12px] font-bold uppercase tracking-[0.03em]">
+                      {image.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : (
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+            <div className="grid lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
+              <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
+                <div className="rounded-[10px] border border-[#8ea2d6] px-6 py-10 text-[14px] font-bold leading-[1.35] md:px-8 md:py-12">
+                  Final imagery has not been added yet. Drop assets into public/
+                  {project.slug}/ and add them to this project entry.
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {project.wireframes?.length ? (
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+            <div className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
+              <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
+                <p className="mb-5 text-[12px] font-bold uppercase tracking-[0.03em]">
+                  Process
+                </p>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  {project.wireframes.map((image) => (
+                    <figure key={image.src}>
+                      <RawImage
+                        src={image.src}
+                        alt={image.alt}
+                        sizes="(max-width: 768px) 100vw, 37vw"
+                      />
+                      {image.caption ? (
+                        <figcaption className="mt-2 text-[12px] font-bold uppercase tracking-[0.03em]">
+                          {image.caption}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+          <div className="grid lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
+            <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
+              <div className="pt-2">
+                <BackLink />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 xl:px-[64px]">
+          <div className="mx-auto flex max-w-[1512px] flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt]">
+            <p>Nastja Juricev ©2026</p>
+
+            <div className="flex items-center gap-6 md:gap-8">
+              <Link href="/hiya#work">Work</Link>
+              <Link href="/hiya#about">About</Link>
+              <a href="mailto:juricevnastja@gmail.com" className="text-[#FF4D00]">
+                Get In Touch
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Image
+                  src="/hiya/Linkedin.png"
+                  alt="LinkedIn"
+                  width={14}
+                  height={14}
+                  className="h-[14px] w-[14px] object-contain"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+              >
+                <Image
+                  src="/hiya/Instagram.png"
+                  alt="Instagram"
+                  width={14}
+                  height={14}
+                  className="h-[14px] w-[14px] object-contain"
+                />
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
     </main>
   );
 }
