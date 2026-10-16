@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { DM_Sans } from "next/font/google";
 
+import { SHELL_MAX_WIDTH } from "@/lib/layout";
+
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -61,7 +63,7 @@ export default function QueenieProjectPage() {
   return (
       <main className={`${dmSans.variable} min-h-screen bg-[#fafafa] text-[#1B45C8] [font-family:var(--font-dm-sans)]`}>
         <header className="px-6 pt-5 md:px-10 lg:px-14 xl:px-[64px]">
-          <div className="mx-auto flex max-w-[1512px] items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em]">
+          <div className={`mx-auto flex ${SHELL_MAX_WIDTH} items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em]`}>
           <Link href="/hiya" className="text-[#1B45C8]">
             Nastja Juricev
           </Link>
@@ -80,7 +82,7 @@ export default function QueenieProjectPage() {
         </div>
       </header>
 
-      <div className="mx-auto mt-4 w-full max-w-[1512px] overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]">
+      <div className={`mx-auto mt-4 w-full ${SHELL_MAX_WIDTH} overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]`}>
             <section className="px-6 pb-14 pt-5 md:px-10 md:pb-16 lg:px-14 xl:px-[64px]">
               <div className="grid gap-y-5 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
             <div className="lg:col-span-6 xl:col-span-9">
@@ -111,6 +113,31 @@ export default function QueenieProjectPage() {
                   Outcome | Broadcast on Channel 4 and streamed internationally
                   on Hulu and Disney+
                 </p>
+
+                <p className="text-[18px] font-bold leading-[1.3]">
+                  Queenie is a Channel 4 drama based on Candice
+                  Carty-Williams&apos; novel.
+                </p>
+                <p className="text-[18px] font-bold leading-[1.3]">
+                  I got the opportunity to work with the author and the
+                  animation team to create the visual world of Queenie, from the
+                  main title and end sequence to the digital world she moves
+                  through every day.
+                </p>
+                <p className="text-[18px] font-bold leading-[1.3]">
+                  As we couldn&apos;t use real apps, I designed a whole set of
+                  fictional platforms, including messaging, social media and
+                  video interfaces, alongside a custom emoji library. Each
+                  needed to feel familiar enough to be instantly recognisable,
+                  but have its own personality and place within Queenie&apos;s
+                  world. The designs also needed to evolve throughout production
+                  while feeling consistent with the story.
+                </p>
+                <p className="text-[18px] font-bold leading-[1.3]">
+                  Alongside the digital interfaces, I designed the main title,
+                  end sequence and lower thirds, bringing the different elements
+                  together into one visual world.
+                </p>
               </div>
             </div>
 
@@ -123,35 +150,6 @@ export default function QueenieProjectPage() {
                     imageClassName="object-cover object-center scale-[1.04]"
                   sizes="(max-width: 1024px) 100vw, 34vw"
                 />
-              </div>
-            </div>
-
-              <div className="lg:col-span-7 lg:row-start-2 lg:-mt-5 xl:col-span-11">
-                <div className="max-w-[42ch] space-y-5 text-[18px] font-bold leading-[1.3]">
-                <p>
-                  Queenie is a Channel 4 drama based on Candice
-                  Carty-Williams&apos; novel.
-                </p>
-                <p>
-                  I got the opportunity to work with the author and the
-                  animation team to create the visual world of Queenie, from the
-                  main title and end sequence to the digital world she moves
-                  through every day.
-                </p>
-                <p>
-                  As we couldn&apos;t use real apps, I designed a whole set of
-                  fictional platforms, including messaging, social media and
-                  video interfaces, alongside a custom emoji library. Each
-                  needed to feel familiar enough to be instantly recognisable,
-                  but have its own personality and place within Queenie&apos;s
-                  world. The designs also needed to evolve throughout production
-                  while feeling consistent with the story.
-                </p>
-                <p>
-                  Alongside the digital interfaces, I designed the main title,
-                  end sequence and lower thirds, bringing the different elements
-                  together into one visual world.
-                </p>
               </div>
             </div>
           </div>
@@ -225,7 +223,7 @@ export default function QueenieProjectPage() {
         </section>
 
           <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 xl:px-[64px]">
-            <div className="mx-auto flex max-w-[1512px] flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt]">
+            <div className={`mx-auto flex ${SHELL_MAX_WIDTH} flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt]`}>
             <p>Nastja Juricev ©2026</p>
 
             <div className="flex items-center gap-6 md:gap-8">

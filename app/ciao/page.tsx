@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { DM_Sans, DM_Serif_Display } from "next/font/google";
 
+import ProjectCardMeta from "@/components/project-card-meta";
+import { SHELL_MAX_WIDTH } from "@/lib/layout";
+
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -100,14 +103,7 @@ function PlaceholderCard({
         )}
       </div>
 
-      <div className="flex items-center justify-between gap-2 overflow-hidden pt-1 text-[14px] font-semibold leading-none text-[#1B45C8] md:text-[15px] [font-family:var(--font-dm-sans)]">
-        <span className="shrink-0 whitespace-nowrap tracking-[0.02em] [font-family:var(--font-dm-serif)]">
-          {title}
-        </span>
-        <span className="min-w-0 truncate whitespace-nowrap text-right">
-          {category}
-        </span>
-      </div>
+      <ProjectCardMeta title={title} category={category} />
     </>
   );
 
@@ -130,7 +126,7 @@ export default function CiaoPage() {
       className={`${dmSans.variable} ${dmSerif.variable} min-h-screen bg-[#fafafa] text-[#1B45C8]`}
     >
         <header className="px-6 pt-5 md:px-10 lg:px-14 xl:px-[64px]">
-          <div className="mx-auto flex max-w-[1512px] items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em] [font-family:var(--font-dm-sans)]">
+          <div className={`mx-auto flex ${SHELL_MAX_WIDTH} items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em] [font-family:var(--font-dm-sans)]`}>
           <Link href="/" className="text-[#1B45C8]">
             Nastja Juricev
           </Link>
@@ -171,7 +167,7 @@ export default function CiaoPage() {
         </div>
       </header>
 
-      <div className="mx-auto mt-4 w-full max-w-[1512px] overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]">
+      <div className={`mx-auto mt-4 w-full ${SHELL_MAX_WIDTH} overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]`}>
             <section className="px-6 pb-11 pt-12 md:px-10 md:pb-14 md:pt-16 lg:px-14 xl:px-[64px] xl:pt-[84px]">
               <div className="grid gap-8 lg:grid-cols-12 lg:gap-x-4 lg:items-start xl:grid-cols-24 xl:gap-x-5">
             <div className="lg:col-span-5 xl:col-span-8">
@@ -244,7 +240,7 @@ export default function CiaoPage() {
         </section>
 
           <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 xl:px-[64px]">
-            <div className="mx-auto flex max-w-[1512px] flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt] [font-family:var(--font-dm-sans)]">
+            <div className={`mx-auto flex ${SHELL_MAX_WIDTH} flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt] [font-family:var(--font-dm-sans)]`}>
             <p>Nastja Juricev ©2026</p>
 
             <div className="flex items-center gap-6 md:gap-8">

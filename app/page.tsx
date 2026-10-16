@@ -1,10 +1,12 @@
 import Link from "next/link";
 
+import { SHELL_MAX_WIDTH } from "@/lib/layout";
+
 export default function Home() {
   return (
     <main className="bg-[#f3efe6] text-black">
       <header className="sticky top-0 z-50 bg-[#f3efe6]">
-          <div className="mx-auto flex max-w-[1512px] items-center justify-between px-5 py-4 md:px-8 lg:px-10 xl:px-[64px]">
+          <div className={`mx-auto flex ${SHELL_MAX_WIDTH} items-center justify-between px-5 py-4 md:px-8 lg:px-10 xl:px-[64px]`}>
           <Link href="/" className="text-[12px] tracking-[0.18em]">
             NASTJA JURICEV
           </Link>
@@ -17,7 +19,7 @@ export default function Home() {
       </header>
 
       <section className="bg-black text-white">
-          <div className="mx-auto min-h-[72svh] max-w-[1512px] px-5 py-10 md:px-8 md:py-14 lg:px-10 lg:py-16 xl:px-[64px]">
+          <div className={`mx-auto min-h-[72svh] ${SHELL_MAX_WIDTH} px-5 py-10 md:px-8 md:py-14 lg:px-10 lg:py-16 xl:px-[64px]`}>
           <div className="grid gap-10 md:grid-cols-[minmax(0,760px)_1fr] md:items-start">
             <div>
               <h1 className="max-w-[12ch] text-[clamp(2.8rem,7vw,6.8rem)] leading-[0.92] tracking-[-0.06em]">
@@ -37,7 +39,7 @@ export default function Home() {
       </section>
 
       <section id="work" className="py-16 md:py-24">
-          <div className="mx-auto max-w-[1512px] px-5 md:px-8 lg:px-10 xl:px-[64px]">
+          <div className={`mx-auto ${SHELL_MAX_WIDTH} px-5 md:px-8 lg:px-10 xl:px-[64px]`}>
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
               <p className="text-[12px] tracking-[0.18em] text-black/50">WORK</p>

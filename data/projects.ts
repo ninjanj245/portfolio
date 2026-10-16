@@ -10,6 +10,9 @@ export interface ProjectRecord {
   category: string;
   hero?: ProjectAsset;
   cardFrames?: string[];
+  role?: string;
+  scope?: string;
+  outcome?: string;
   summary: string;
   intro: string;
   deliverables: string[];
@@ -46,6 +49,9 @@ export const projects: ProjectRecord[] = [
       "/concepts/hover 2.png",
       "/concepts/hover 3.png",
     ],
+    role: "Art Direction",
+    scope: "Campaign concepting · Art direction",
+    outcome: "To be confirmed",
     summary: "A flexible image-led project used here to test hover sequencing.",
     intro:
       "For now this entry is just feeding the homepage hover behaviour while we tune the effect.",
@@ -72,6 +78,9 @@ export const projects: ProjectRecord[] = [
       "/appartamento/hover 4.webp",
       "/appartamento/hover 5.png",
     ],
+    role: "Designer",
+    scope: "Identity · Print · Campaign assets",
+    outcome: "To be confirmed",
     summary: "A tactile identity system developed across print and digital touchpoints.",
     intro:
       "This template page is ready for your final project copy, ordered image story, and supporting wireframes.",
@@ -106,6 +115,9 @@ export const projects: ProjectRecord[] = [
       "/patient app/hover 3.png",
       "/patient app/hover 4.png",
     ],
+    role: "UI / UX Designer",
+    scope: "Product design · Prototype · Visual system",
+    outcome: "To be confirmed",
     summary: "A product project currently being used to test the homepage hover sequence.",
     intro:
       "For now this entry is only feeding the homepage hover behaviour while we tune the motion.",
@@ -130,6 +142,9 @@ export const projects: ProjectRecord[] = [
       "/conference/hover 2.webp",
       "/conference/hover 3.jpg",
     ],
+    role: "Designer",
+    scope: "Event identity · Campaign",
+    outcome: "To be confirmed",
     summary: "An event identity project currently being used to test the homepage hover sequence.",
     intro:
       "For now this entry is only feeding the homepage hover behaviour while we tune the motion.",
@@ -154,6 +169,9 @@ export const projects: ProjectRecord[] = [
       "/sumoco/hover 2.png",
       "/sumoco/hover 3.png",
     ],
+    role: "Designer",
+    scope: "UI design · Brand identity",
+    outcome: "To be confirmed",
     summary: "A product and identity project now set up with its own route.",
     intro:
       "This page is ready for final copy, ordered imagery, and any wireframes you want to add later.",
@@ -173,6 +191,9 @@ export const projects: ProjectRecord[] = [
     slug: "headbox",
     title: "HeadBox",
     category: "Landing Page",
+    role: "Designer",
+    scope: "Landing page · Digital design",
+    outcome: "To be confirmed",
     summary: "A landing page project route prepared for final assets and copy.",
     intro:
       "The route is live now, and the page is ready for your final hero image, detail sequence, and written content.",
@@ -192,6 +213,9 @@ export const projects: ProjectRecord[] = [
       "/queenie/hover 2.jpg",
       "/queenie/hover 3.png",
     ],
+    role: "Lead Designer",
+    scope: "Series identity · On-screen graphics · Digital ecosystem",
+    outcome: "Broadcast on Channel 4, streamed on Hulu and Disney+",
     summary: "An image-led project currently being used to test the homepage hover sequence.",
     intro:
       "For now this entry is only feeding the homepage hover behaviour while we tune the motion.",

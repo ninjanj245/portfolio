@@ -4,6 +4,8 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import ProjectCardMeta from "@/components/project-card-meta";
+
 export interface HiyaProject {
   title: string;
   category: string;
@@ -58,14 +60,7 @@ function HoverProjectCard({ project }: { project: HiyaProject }) {
         />
       </div>
 
-      <div className="flex items-center justify-between gap-2 overflow-hidden pt-1 text-[14px] font-semibold leading-none text-[#1B45C8] md:text-[15px] [font-family:var(--font-dm-sans)]">
-        <span className="shrink-0 whitespace-nowrap tracking-[0.02em] [font-family:var(--font-dm-serif)]">
-          {project.title}
-        </span>
-        <span className="min-w-0 truncate whitespace-nowrap text-right">
-          {project.category}
-        </span>
-      </div>
+      <ProjectCardMeta title={project.title} category={project.category} />
     </>
   );
 
