@@ -122,7 +122,7 @@ export default function HiyaPage() {
     <main
       className={`${dmSans.variable} ${dmSerif.variable} min-h-screen bg-[#fafafa] text-[#1B45C8]`}
     >
-      <header className="px-6 pt-5 md:px-10 lg:px-14 xl:px-[64px]">
+      <header className="px-6 pt-5 md:px-10 lg:px-14 min-[1512px]:px-0">
         <div className={`mx-auto flex ${SHELL_MAX_WIDTH} items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em] md:text-[10pt] lg:text-[10pt] [font-family:var(--font-dm-sans)]`}>
           <Link href="/" className="text-[#1B45C8]">
             Nastja Juricev
@@ -168,7 +168,7 @@ export default function HiyaPage() {
       </header>
 
         <div className={`mx-auto mt-4 w-full ${SHELL_MAX_WIDTH} overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]`}>
-          <section className="px-6 pb-14 pt-14 md:px-10 md:pb-18 md:pt-18 lg:px-14 lg:pb-20 lg:pt-16 xl:px-[64px]">
+          <section className="px-6 pb-14 pt-14 md:px-10 md:pb-18 md:pt-18 lg:px-14 lg:pb-20 lg:pt-16 min-[1512px]:px-0">
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-x-4 lg:items-end xl:grid-cols-24 xl:gap-x-5">
             <div className="lg:col-span-5 xl:col-span-8">
               <h1 className="text-[clamp(4.9rem,10vw,7.7rem)] uppercase leading-[0.83] tracking-[0.02em] text-[#1B45C8] [font-family:var(--font-dm-serif)]">
@@ -186,11 +186,11 @@ export default function HiyaPage() {
           </div>
         </section>
 
-        <section id="work" className="px-6 pb-24 md:px-10 lg:px-14 xl:px-[64px]">
+        <section id="work" className="px-6 pb-24 md:px-10 lg:px-14 min-[1512px]:px-0">
           <HiyaProjectGrid projects={projects} />
         </section>
 
-            <section id="about" className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+            <section id="about" className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 min-[1512px]:px-0">
               <div className="grid gap-x-6 gap-y-5 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
             <div className="order-1 lg:col-span-6 xl:col-span-10">
               <h2 className="text-[40px] uppercase leading-[0.94] tracking-[-0.04em] text-[#1B45C8] [font-family:var(--font-dm-serif)]">
@@ -234,7 +234,7 @@ export default function HiyaPage() {
           </div>
         </section>
 
-            <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 xl:px-[64px]">
+            <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 min-[1512px]:px-0">
               <div className={`mx-auto flex ${SHELL_MAX_WIDTH} flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt] [font-family:var(--font-dm-sans)]`}>
             <p>Nastja Juricev ©2026</p>
 

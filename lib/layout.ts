@@ -1,16 +1,14 @@
 /**
  * Shared layout shell tokens.
  *
- * The Figma design source is 1512px wide, and every internal proportion
- * (24-column grid, 20px gutters, type scale) was drawn against that width.
- * Keeping the shell at 1512px is what keeps those proportions exact, so this
- * constant is the single source of truth for the site shell.
+ * The Figma source frame is 1512px wide with a 24-column grid, a 20px gutter
+ * and zero margin, so the shell is capped at 1512px and the grid runs edge to
+ * edge inside it. Each section keeps a page inset at smaller widths for
+ * breathing room, and drops it at 1512px+ so the columns land on the same
+ * numbers as the Figma file.
  *
- * To change the site width, change SHELL_MAX_WIDTH here and every page
- * updates at once.
+ * Section wrapper pattern:
+ *   `mx-auto w-full ${SHELL_MAX_WIDTH} px-6 md:px-10 lg:px-14 min-[1512px]:px-0`
+ *   `grid lg:grid-cols-12 xl:grid-cols-24 lg:gap-x-4 xl:gap-x-5`
  */
 export const SHELL_MAX_WIDTH = "max-w-[1512px]";
-
-export const SHELL_PADDING = "px-6 md:px-10 lg:px-14 xl:px-[64px]";
-
-export const SHELL = `mx-auto w-full ${SHELL_MAX_WIDTH} ${SHELL_PADDING}`;

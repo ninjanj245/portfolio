@@ -59,7 +59,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
     <main
       className={`${dmSans.variable} min-h-screen bg-[#fafafa] text-[#1B45C8] [font-family:var(--font-dm-sans)]`}
     >
-      <header className="px-6 pt-5 md:px-10 lg:px-14 xl:px-[64px]">
+      <header className="px-6 pt-5 md:px-10 lg:px-14 min-[1512px]:px-0">
         <div className={`mx-auto flex ${SHELL_MAX_WIDTH} items-center justify-between text-[10pt] font-bold uppercase tracking-[0.03em]`}>
           <Link href="/hiya" className="text-[#1B45C8]">
             Nastja Juricev
@@ -80,7 +80,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
       </header>
 
       <div className={`mx-auto mt-4 w-full ${SHELL_MAX_WIDTH} overflow-hidden rounded-[12px] border border-[#8ea2d6] bg-[#fafafa]`}>
-        <section className="px-6 pb-14 pt-5 md:px-10 md:pb-16 lg:px-14 xl:px-[64px]">
+        <section className="px-6 pb-14 pt-5 md:px-10 md:pb-16 lg:px-14 min-[1512px]:px-0">
           <div className="grid gap-y-5 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
             <div className="lg:col-span-6 xl:col-span-9">
               <div className="mb-5">
@@ -135,7 +135,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
         </section>
 
         {project.detailImages.length ? (
-          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 min-[1512px]:px-0">
             <div className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
               {project.detailImages.map((image) => (
                 <figure
@@ -157,7 +157,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
             </div>
           </section>
         ) : (
-          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 min-[1512px]:px-0">
             <div className="grid lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
               <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
                 <div className="rounded-[10px] border border-[#8ea2d6] px-6 py-10 text-[14px] font-bold leading-[1.35] md:px-8 md:py-12">
@@ -170,7 +170,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
         )}
 
         {project.wireframes?.length ? (
-          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+          <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 min-[1512px]:px-0">
             <div className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
               <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
                 <p className="mb-5 text-[12px] font-bold uppercase tracking-[0.03em]">
@@ -198,7 +198,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
           </section>
         ) : null}
 
-        <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 xl:px-[64px]">
+        <section className="px-6 pb-16 md:px-10 md:pb-20 lg:px-14 min-[1512px]:px-0">
           <div className="grid lg:grid-cols-12 lg:gap-x-4 xl:grid-cols-24 xl:gap-x-5">
             <div className="lg:col-span-10 lg:col-start-2 xl:col-span-18 xl:col-start-4">
               <div className="pt-2">
@@ -208,7 +208,7 @@ export default function ProjectDetail({ project }: { project: ProjectRecord }) {
           </div>
         </section>
 
-        <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 xl:px-[64px]">
+        <footer className="mt-4 bg-[#1B45C8] px-6 py-4 text-white md:px-10 lg:px-14 min-[1512px]:px-0">
           <div className={`mx-auto flex ${SHELL_MAX_WIDTH} flex-wrap items-center justify-between gap-4 text-[8pt] font-normal uppercase tracking-[0.03em] md:text-[9pt]`}>
             <p>Nastja Juricev ©2026</p>
 
